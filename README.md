@@ -1,6 +1,6 @@
 # zDropdown
 
-demo:  
+example:  [www.zzetao.com/zDropdown/example/](http://www.zzetao.com/zDropdown/example/)
 
 ## 特性
 
@@ -24,7 +24,7 @@ var myDropdown = new zDropdown({
 
 | name   | type                    | description        |
 | ------ | ----------------------- | ------------------ |
-| el     | String \| Node (select) | 元素的 ID或者 select 节点 |
+| el     | String \| Node (select) | 元素的 ID 或者 select 节点 |
 | skin   | String                  | 样式名, 多个用空格隔开       |
 | change | Function                | 更改选择项后触发的函数        |
 
