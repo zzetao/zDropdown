@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>zDropdown demo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../dist/zDropdown.css">
+
+  <style>
+/* 自定义皮肤 */
+.my-skin {
+  border-radius: 0;
+  border-color: #999;
+}
+.my-skin.active {
+	border-radius: 0;
+}
+.my-skin .z-dropdown-container {
+	border-color: #999;
+}
+.my-skin:hover, .my-skin.active {
+	border-color: #777;
+	box-shadow: none;
+}
+.my-skin .z-dropdown-container li:hover, .my-skin .z-dropdown-container li.selected {
+	background-color: #eee;
+}	
+  </style>
+
+</head>
+<body>
+<div class="example-wrap">
+	<h1 class="example-title">zDropdown</h1>	
+	<div class="example-section">
+		<h3>基本使用</h3>
+		<div class="example-section-content">
+			<select name="dropdown" id="myDropdown">
+			  <option value="a">眼保健操</option>
+			  <option value="b" selected>早操</option>
+			  <option value="c">午休</option>
+			  <option value="c">早读</option>
+			</select>
+		</div>
+<pre>
+new zDropdown({
+	el: "myDropdown"
+})
+</pre>
+	</div>
+
+	<div class="example-section">
+		<h3>回调事件</h3>
+		<div class="example-section-content">
+			<select name="dropdown" id="myDropdownEvent">
+			  <option value="a">眼保健操</option>
+			  <option value="b">早操</option>
+			  <option value="c">午休</option>
+			  <option value="c" selected>早读</option>
+			</select>
+		</div>
+<pre>
+new zDropdown({
+	el: document.getElementById("myDropdownEvent"),
+	change: function(value, text, index) {
+		alert("value: " + value + ", text: " + text + ", index: " + index);
+	}
+})
+</pre>
+	</div>
+
+	<div class="example-section">
+		<h3>销毁</h3>
+		<div class="example-section-content">
+			<select name="dropdown" id="myDropdownDestroyEvent">
+			  <option value="a">眼保健操</option>
+			  <option value="b">早操</option>
+			  <option value="c">午休</option>
+			  <option value="c" selected>早读</option>
+			</select>
+
+			<button class="button" id="destroyMyDropdownEvent">销毁</button>
+		</div>
+<pre>
+var myDropdown = new zDropdown({
+	el: document.getElementById("myDropdownDestroyEvent"),
+	change: function(value, text, index) {
+		alert("value: " + value + ", text: " + text + ", index: " + index);
+	}
+});
+document.getElementById("destroyMyDropdownEvent").onclick = function() {
+	myDropdown.destroy();
+}
+</pre>
+	</div>
+
+
+	<div class="example-section">
+		<h3>手动触发选择项</h3>
+		<div class="example-section-content">
+			<select name="dropdown" id="manualDropdown">
+			  <option value="a" selected>眼保健操</option>
+			  <option value="b">早操</option>
+			  <option value="c">午休</option>
+			  <option value="c">早读</option>
+			</select>
+
+			<span id="manualItems" style="margin-left: 20px;">
+				<a href="javascript:void(0);" index="0">眼保健操</a>
+				<a href="javascript:void(0);" index="1">早操</a>
+				<a href="javascript:void(0);" index="2">午休</a>
+				<a href="javascript:void(0);" index="3">早读</a>
+			</span>
+		</div>
+<pre>
+var manualDropdown = new zDropdown({
+	el: document.getElementById("manualDropdown"),
+	change: function(value, text, index) {
+		console.log("value: " + value + ", text: " + text + ", index: " + index);
+	}
+});
+manualDropdown.changeItem(index);
+</pre>
+	</div>
+
+	<div class="example-section">
+		<h3>自定义皮肤</h3>
+		<div class="example-section-content">
+			<select name="dropdown" id="mySkinDropdown">
+			  <option value="a" selected>眼保健操</option>
+			  <option value="b">早操</option>
+			  <option value="c">午休</option>
+			  <option value="c">早读</option>
+			</select>
+		</div>
+<pre>
+new zDropdown({
+	el: document.getElementById("mySkinDropdown"),
+	skin: "my-skin"
+})
+</pre>
+	</div>
+</div>
+<script src="../dist/zDropdown.min.js"></script>
+<script>
+	// 基本使用
+	new zDropdown({
+		el: "myDropdown"
+	})
+
+	// 回调事件
+	new zDropdown({
+		el: document.getElementById("myDropdownEvent"),
+		change: function(value, text, index) {
+			alert("value: " + value + ", text: " + text + ", index: " + index);
+		}
+	})
+
+	// 销毁
+	var myDropdown = new zDropdown({
+		el: document.getElementById("myDropdownDestroyEvent"),
+		change: function(value, text, index) {
+			alert("value: " + value + ", text: " + text + ", index: " + index);
+		}
+	});
+	document.getElementById("destroyMyDropdownEvent").onclick = function() {
+		myDropdown.destroy();
+	}
+
+	// 手动触发选择项
+	var manualDropdown = new zDropdown({
+		el: document.getElementById("manualDropdown"),
+		change: function(value, text, index) {
+			console.log("value: " + value + ", text: " + text + ", index: " + index);
+		}
+	});
+	document.getElementById("manualItems").onclick = function(e) {
+		var target = e.target || e.srcElement;
+		var index  = target.getAttribute("index");
+		manualDropdown.changeItem(index);
+	}
+
+	// 自定义皮肤
+	new zDropdown({
+		el: document.getElementById("mySkinDropdown"),
+		skin: "my-skin"
+	})
+
+</script>
+</body>
+</html>
