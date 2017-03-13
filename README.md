@@ -4,9 +4,15 @@ example:  [www.zzetao.com/zDropdown/example/](http://www.zzetao.com/zDropdown/ex
 
 ## 特性
 
-- [**轻量级**] 仅 2.2KB minified + gzip
+- [**轻量级**] 仅 1.8KB minified + gzip
 - [**无依赖**] 纯 Javascript 编写
 - [**多主题**] 支持皮肤扩展
+- [**兼容性**] 兼容 IE8 +
+
+
+
+
+支持Angular: [ng-dropdown](https://github.com/zzetao/ng-dropdown)
 
 
 
@@ -22,11 +28,11 @@ var myDropdown = new zDropdown({
 })
 ```
 
-| name   | type                    | description        |
-| ------ | ----------------------- | ------------------ |
+| name   | type                    | description         |
+| ------ | ----------------------- | ------------------- |
 | el     | String \| Node (select) | 元素的 ID 或者 select 节点 |
-| skin   | String                  | 样式名, 多个用空格隔开       |
-| change | Function                | 更改选择项后触发的函数        |
+| skin   | String                  | 样式名, 多个用空格隔开        |
+| change | Function                | 更改选择项后触发的函数         |
 
 
 
@@ -35,6 +41,7 @@ var myDropdown = new zDropdown({
 ```
 myDropdown.destroy();   // 销毁实例
 myDropdown.changeItem(index);   // 手动触发指定选择项
+myDropdown.update();   // 从 select 更新新的数据
 ```
 
 
@@ -55,4 +62,3 @@ var myDropdown = new zDropdown({
 myDropdown.destroy();  // 销毁
 myDropdown.changeItem(index); // option 索引值
 ```
-
