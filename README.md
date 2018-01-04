@@ -1,6 +1,6 @@
 # zDropdown
 
-example:  [www.zzetao.com/zDropdown/example/](http://www.zzetao.com/zDropdown/example/)
+example:  [zzetao.github.io/zDropdown/example/](https://zzetao.github.io/zDropdown/example/)
 
 ## 特性
 
